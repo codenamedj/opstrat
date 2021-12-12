@@ -7,6 +7,7 @@ from .helpers import payoff_calculator, check_optype, check_trtype
 
 abb={'c': 'Call',
     'p': 'Put',
+    'f': 'Future',
     'b': 'Long',
     's': 'Short'}
 
@@ -63,7 +64,9 @@ def multi_plotter(spot_range=20, spot=100,
     for op in op_list:
         op_type=str.lower(op['op_type'])
         tr_type=str.lower(op['tr_type'])
-        check_optype(op_type)
+        if (op_type not in ['p','c','f']):
+            raise ValueError("Input 'p' for put and 'c' for call!")
+        
         check_trtype(tr_type)
         
         strike=op['strike']
