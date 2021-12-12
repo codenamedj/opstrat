@@ -52,7 +52,8 @@ def single_plotter(op_type='c',spot=100, spot_range=10,strike=102,tr_type='b',op
     
     op_type=str.lower(op_type)
     tr_type=str.lower(tr_type)
-    check_optype(op_type)
+    if (op_type not in ['p','c','f']):
+        raise ValueError("Input 'p' for put and 'c' for call!")
     check_trtype(tr_type)
     
     def payoff_calculator():
