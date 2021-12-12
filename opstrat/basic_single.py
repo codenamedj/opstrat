@@ -68,7 +68,7 @@ def single_plotter(op_type='c',spot=100, spot_range=10,strike=102,tr_type='b',op
                 y.append(max(strike-x[i]-op_pr,-op_pr))
         elif str.lower(op_type)=='f':
             for i in range(len(x)):
-                y.append(x[i])
+                y.append(x[i]-op_pr)
 
         if str.lower(tr_type)=='s':
             y=-np.array(y)
