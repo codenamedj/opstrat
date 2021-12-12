@@ -19,7 +19,7 @@ def payoff_calculator(x, op_type, strike, op_pr, tr_type, n):
             y.append(max(strike-x[i]-op_pr,-op_pr))
     elif str.lower(op_type)=='f':
         for i in range(len(x)):
-            y.append(x[i])
+            y.append(x[i]-op_pr)
     y=np.array(y)
 
     if tr_type=='s':
